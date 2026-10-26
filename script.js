@@ -14,7 +14,8 @@ const SKILLS = [
     { name: "MySQL", proof: "Base du Site Actu Dynamique (utilisateurs, articles, catégories), interrogée avec des requêtes préparées PDO." },
     { name: "Python", proof: "SénSanté : entraînement d'un modèle de pré-diagnostic et exposition par une API." },
     { name: "FastAPI", proof: "API REST de SénSanté, documentée automatiquement avec Swagger." },
-    { name: "Git / GitHub", proof: "Versionnement de mes projets, et déploiement de ce portfolio avec GitHub Pages." }
+    { name: "Git / GitHub", proof: "Versionnement de mes projets, et déploiement de ce portfolio avec GitHub Pages." },
+    { name: "Java", proof: "Application Bibliothèque : application de gestion de bibliothèque développée en Java à l'ESP." }
 ];
 
 const COLORS = ["word-yellow", "word-coral", "word-navy", "word-white"];
