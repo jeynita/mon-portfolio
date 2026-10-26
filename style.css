@@ -219,16 +219,40 @@ h3 {
 
 h1 {
     font-family: "Fredoka", sans-serif;
-    font-size: clamp(2.6rem, 8vw, 4.8rem);
+    font-size: clamp(2.3rem, 6.5vw, 3.8rem);
     font-weight: 600;
-    line-height: 1.02;
-    letter-spacing: -1.5px;
+    line-height: 1.08;
+    letter-spacing: -1px;
 }
 
-h1 span {
+h1 .w {
     display: inline-block;
-    padding: 0 8px;
-    background: linear-gradient(transparent 64%, var(--yellow) 64%);
+}
+
+/* Surlignage jaune : un trait sous « marchent. » qui se dessine */
+h1 .hl {
+    position: relative;
+    display: inline-block;
+    z-index: 0;
+}
+
+h1 .hl::after {
+    content: "";
+    position: absolute;
+    left: -4px;
+    right: -4px;
+    bottom: 0.08em;
+    height: 0.34em;
+    z-index: -1;
+    border-radius: 4px;
+    background: var(--yellow);
+    transform: scaleX(var(--hl, 1));
+    transform-origin: left center;
+}
+
+/* Masque le texte jusqu'à l'animation (retiré par le JS) */
+.js .hero-text > * {
+    visibility: hidden;
 }
 
 .hero-description {
@@ -472,6 +496,7 @@ button.word {
 }
 
 button.word.word-navy {
+    background: transparent;
     border: 2px solid var(--cream);
 }
 
