@@ -533,6 +533,14 @@ function initScrollStory() {
         scrollTrigger: { trigger: ".cards", start: "top 80%", once: true }
     });
 
+    // 4b. La capture se dévoile doucement
+    gsap.from(".card-shot img", {
+        scale: 1.12,
+        duration: 1.4,
+        ease: "power2.out",
+        scrollTrigger: { trigger: ".cards", start: "top 80%", once: true }
+    });
+
     // 5. Parcours : le fil se dessine avec le scroll, les étapes arrivent une à une
     const timeline = document.querySelector(".timeline");
 
