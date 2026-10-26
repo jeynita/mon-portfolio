@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description" content="Portfolio de Dieynaba Baldé, étudiante en génie logiciel à Dakar, à la recherche d'un stage à partir de mai 2027.">
-    <meta name="theme-color" content="#F7F4ED">
+    <meta name="theme-color" content="#F3EADB">
 
     <title>Dieynaba Baldé | Étudiante en génie logiciel</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&display=swap"
         rel="stylesheet"
     >
 
@@ -26,6 +26,28 @@
 </head>
 
 <body>
+    <!-- Décor : le ciel change pendant le scroll (animé par GSAP) -->
+    <div class="sky" aria-hidden="true"></div>
+    <div class="sun" aria-hidden="true"></div>
+    <div class="horizon" aria-hidden="true">
+        <svg viewBox="0 0 400 300" fill="currentColor" stroke="currentColor" stroke-linecap="round">
+            <path stroke="none" d="M140 300 C152 240 158 200 154 160 L246 160 C242 200 248 240 262 300 Z"/>
+            <path fill="none" stroke-width="12" d="M170 164 C150 130 110 112 70 100"/>
+            <path fill="none" stroke-width="12" d="M186 162 C176 122 150 84 120 56"/>
+            <path fill="none" stroke-width="13" d="M200 162 C200 122 200 82 205 42"/>
+            <path fill="none" stroke-width="12" d="M216 162 C226 122 256 88 290 62"/>
+            <path fill="none" stroke-width="12" d="M232 164 C252 136 292 116 335 106"/>
+            <g stroke="none">
+                <ellipse cx="70" cy="96" rx="40" ry="18"/>
+                <ellipse cx="120" cy="52" rx="38" ry="18"/>
+                <ellipse cx="205" cy="36" rx="44" ry="19"/>
+                <ellipse cx="290" cy="56" rx="38" ry="18"/>
+                <ellipse cx="335" cy="100" rx="40" ry="18"/>
+            </g>
+        </svg>
+    </div>
+    <div class="progress" aria-hidden="true"></div>
+
     <header class="header">
         <a class="logo" href="#accueil">Dieynaba<span>Baldé</span></a>
 
@@ -77,6 +99,12 @@
                 </div>
             </div>
         </section>
+        <!-- Bandeau des compétences (rempli et animé par script.js) -->
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee__track" id="marquee-track"></div>
+        </div>
+
+
 
 
         <!-- =========================
@@ -198,5 +226,19 @@
     <footer class="footer">
         <p>Dieynaba Baldé · Dakar · Sénégal.</p>
     </footer>
+
+    <!-- Transition « livre » (animée par GSAP) -->
+    <div class="book" id="book" aria-hidden="true">
+        <div class="book__left">
+            <p class="book__brand">dieynaba.baldé</p>
+        </div>
+        <div class="book__leaf">
+            <div class="book__face book__front"></div>
+            <div class="book__face book__back">
+                <p class="book__num" id="book-num">01</p>
+                <p class="book__title" id="book-title">accueil</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -56,7 +56,7 @@ if (saladier && drawButton) {
         word.type = "button";
         word.className = `word ${COLORS[index % COLORS.length]}`;
         word.textContent = skill.name;
-        word.style.rotate = `${((index * 37) % 13) - 6}deg`;
+        word.style.rotate = `${((index * 37) % 7) - 3}deg`;
 
         word.addEventListener("click", () => selectSkill(index));
 
@@ -361,3 +361,227 @@ function initPortrait() {
 }
 
 initPortrait();
+
+/* =========================================
+   TRANSITION « LIVRE » ENTRE LES SECTIONS (GSAP)
+========================================= */
+
+function initPageTurn() {
+    const book = document.getElementById("book");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // Sans GSAP ou en mode « réduire les animations » : défilement normal.
+    if (!book || reduceMotion || typeof gsap === "undefined") return;
+
+    const left = book.querySelector(".book__left");
+    const leaf = book.querySelector(".book__leaf");
+    const numEl = document.getElementById("book-num");
+    const titleEl = document.getElementById("book-title");
+    const order = ["accueil", "projets", "a-propos", "competences", "contact"];
+
+    function resetBook() {
+        gsap.set(left, { xPercent: -100 });
+        gsap.set(leaf, {
+            xPercent: 100,
+            rotationY: 0,
+            transformOrigin: "left center",
+            transformPerspective: 2200
+        });
+    }
+
+    resetBook();
+
+    let busy = false;
+
+    function turnTo(target, hash) {
+        busy = true;
+
+        const label = target.querySelector(".section-label");
+        const position = Math.max(order.indexOf(target.id), 0) + 1;
+
+        numEl.textContent = String(position).padStart(2, "0");
+        titleEl.textContent = label ? label.textContent.toLowerCase() : "accueil";
+
+        book.classList.add("is-on");
+
+        gsap.timeline({
+            onComplete: () => {
+                book.classList.remove("is-on");
+                resetBook();
+                busy = false;
+            }
+        })
+            // 1. Le livre se referme sur la page actuelle
+            .to(left, { xPercent: 0, duration: 0.3, ease: "power2.out" }, 0)
+            .to(leaf, { xPercent: 0, duration: 0.3, ease: "power2.out" }, 0)
+            // 2. Sous le livre fermé, on change de section
+            .add(() => {
+                target.scrollIntoView({ behavior: "instant", block: "start" });
+                history.pushState(null, "", hash);
+                target.setAttribute("tabindex", "-1");
+                target.focus({ preventScroll: true });
+            })
+            // 3. La page se tourne
+            .to(leaf, { rotationY: -180, duration: 0.6, ease: "power2.inOut" })
+            // 4. Le livre s'ouvre sur la nouvelle section
+            .to([left, leaf], { xPercent: -100, duration: 0.4, ease: "power2.in" }, "+=0.05");
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", (event) => {
+            const hash = link.getAttribute("href");
+            if (!hash || hash.length < 2) return;
+
+            const target = document.querySelector(hash);
+            if (!target) return;
+
+            event.preventDefault();
+            if (!busy) turnTo(target, hash);
+        });
+    });
+}
+
+initPageTurn();
+
+/* =========================================
+   « UNE JOURNÉE À DAKAR » : ANIMATIONS AU SCROLL (GSAP)
+========================================= */
+
+// Bandeau de compétences (deux copies pour une boucle sans coupure).
+function buildMarquee() {
+    const track = document.getElementById("marquee-track");
+    if (!track) return null;
+
+    const half = SKILLS.map((skill) => `<span>${skill.name}</span><i>✦</i>`).join("").repeat(2);
+    track.innerHTML = half + half;
+
+    return track;
+}
+
+function initScrollStory() {
+    const track = buildMarquee();
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reduceMotion) return;
+    if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const root = document.documentElement;
+    const sun = document.querySelector(".sun");
+
+    // 1. Le ciel et le soleil suivent la journée : aube, midi, soleil couchant, crépuscule.
+    const day = gsap.timeline({
+        defaults: { ease: "none" },
+        scrollTrigger: {
+            trigger: document.body,
+            start: "top top",
+            end: "bottom bottom",
+            scrub: 1,
+            invalidateOnRefresh: true
+        }
+    });
+
+    day.to(root, { "--sky-top": "rgb(247,240,226)", "--sky-bottom": "rgb(240,232,214)", duration: 1 })
+       .to(root, { "--sky-top": "rgb(246,222,190)", "--sky-bottom": "rgb(240,213,184)", duration: 1 })
+       .to(root, { "--sky-top": "rgb(238,192,160)", "--sky-bottom": "rgb(226,170,148)", duration: 1 })
+       .to(root, { "--sky-top": "rgb(214,178,175)", "--sky-bottom": "rgb(196,150,160)", duration: 1 })
+       .to(root, { "--sun-a": "rgb(255,196,140)", "--sun-b": "rgb(214,90,64)", duration: 4 }, 0);
+
+    if (sun) {
+        day.to(sun, { x: () => -window.innerWidth * 0.66, duration: 4 }, 0)
+           .to(sun, { y: () => -window.innerHeight * 0.04, duration: 1.6, ease: "sine.out" }, 0)
+           .to(sun, { y: () => window.innerHeight * 0.62, duration: 2.4, ease: "sine.in" }, 1.6);
+    }
+
+    // 2. Barre de progression
+    gsap.to(".progress", {
+        scaleX: 1,
+        ease: "none",
+        scrollTrigger: { start: 0, end: "max", scrub: 0.3 }
+    });
+
+    // 3. Chaque section : titres qui montent, frise qui se dessine
+    gsap.utils.toArray(".section").forEach((section) => {
+        const head = section.querySelectorAll(".section-label, h2, .lead");
+
+        gsap.from(head, {
+            y: 36,
+            autoAlpha: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            stagger: 0.12,
+            scrollTrigger: { trigger: section, start: "top 78%", once: true }
+        });
+
+        gsap.fromTo(section, { "--d": 0 }, {
+            "--d": 1,
+            duration: 1.2,
+            ease: "power2.out",
+            scrollTrigger: { trigger: section, start: "top 85%", once: true }
+        });
+    });
+
+    // 4. Cartes projets
+    gsap.from(".card", {
+        y: 70,
+        rotation: 1.5,
+        autoAlpha: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        stagger: 0.15,
+        scrollTrigger: { trigger: ".cards", start: "top 80%", once: true }
+    });
+
+    // 5. Parcours : le fil se dessine avec le scroll, les étapes arrivent une à une
+    const timeline = document.querySelector(".timeline");
+
+    if (timeline) {
+        gsap.fromTo(timeline, { "--tl": 0 }, {
+            "--tl": 1,
+            ease: "none",
+            scrollTrigger: { trigger: timeline, start: "top 75%", end: "bottom 60%", scrub: true }
+        });
+
+        gsap.from(".timeline li", {
+            x: -40,
+            autoAlpha: 0,
+            duration: 0.7,
+            ease: "power3.out",
+            stagger: 0.18,
+            scrollTrigger: { trigger: timeline, start: "top 78%", once: true }
+        });
+    }
+
+    // 6. Compétences : elles « éclosent » une par une
+    gsap.from(".skills li", {
+        y: 24,
+        scale: 0.7,
+        autoAlpha: 0,
+        duration: 0.5,
+        ease: "back.out(1.8)",
+        stagger: 0.045,
+        scrollTrigger: { trigger: ".skills", start: "top 82%", once: true }
+    });
+
+    // 7. Bandeau : défile en continu, accélère et change de sens avec le scroll
+    if (track) {
+        const drift = gsap.to(track, { xPercent: -50, duration: 32, ease: "none", repeat: -1 });
+
+        ScrollTrigger.create({
+            start: 0,
+            end: "max",
+            onUpdate: (self) => {
+                const boost = 1 + Math.min(6, Math.abs(self.getVelocity()) / 250);
+
+                gsap.timeline({ overwrite: true })
+                    .to(drift, { timeScale: self.direction * boost, duration: 0.2 })
+                    .to(drift, { timeScale: self.direction, duration: 1 });
+            }
+        });
+    }
+
+    window.addEventListener("load", () => ScrollTrigger.refresh());
+}
+
+initScrollStory();
