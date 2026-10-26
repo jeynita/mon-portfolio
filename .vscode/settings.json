@@ -40,5 +40,6 @@
         "activityBar.activeBorder": "#1fd19e",
         "activityBarBadge.foreground": "#000000",
         "activityBarBadge.background": "#1fd19e"
-    }
+    },
+    "liveServer.settings.port": 5501
 }
