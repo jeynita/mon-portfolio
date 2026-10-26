@@ -3,18 +3,18 @@
 ========================================= */
 
 /*
- * Modifie chaque phrase pour citer un vrai projet
- * (par exemple : "Utilisé dans LigueyConnect pour ...").
+ * Chaque preuve doit citer un vrai projet.
+ * Ajoute Java, Spring Boot, Docker, UML / Merise dès que tu as
+ * un projet réel à citer (par exemple : "Utilisé dans ... pour ...").
  */
 const SKILLS = [
-    { name: "Java", proof: "Mon langage principal côté backend, travaillé à l'ESP et en projet." },
-    { name: "Spring Boot", proof: "Le framework avec lequel je construis des applications Java." },
-    { name: "JavaScript", proof: "Toute la logique de Sénégal Challenge : duos, chrono, scores." },
-    { name: "HTML / CSS", proof: "L'interface responsive de Sénégal Challenge et de ce portfolio." },
-    { name: "Git / GitHub", proof: "Versionnement, branches et déploiement de mes projets sur GitHub Pages." },
-    { name: "MySQL", proof: "Modélisation et requêtes pour mes projets avec base de données." },
-    { name: "UML / Merise", proof: "Je conçois mes applications sur le papier avant de coder." },
-    { name: "Docker", proof: "Conteneurisation pour déployer mes applications." }
+    { name: "JavaScript", proof: "Toute la logique de Sénégal Challenge : duos tirés au hasard, chrono, scores et guide de première visite." },
+    { name: "HTML / CSS", proof: "Interface responsive de Sénégal Challenge et de ce portfolio." },
+    { name: "PHP", proof: "Back-end du Site Actu Dynamique : sessions, CRUD des articles et gestion de trois profils." },
+    { name: "MySQL", proof: "Base du Site Actu Dynamique (utilisateurs, articles, catégories), interrogée avec des requêtes préparées PDO." },
+    { name: "Python", proof: "SénSanté : entraînement d'un modèle de pré-diagnostic et exposition par une API." },
+    { name: "FastAPI", proof: "API REST de SénSanté, documentée automatiquement avec Swagger." },
+    { name: "Git / GitHub", proof: "Versionnement de mes projets, et déploiement de ce portfolio avec GitHub Pages." }
 ];
 
 const COLORS = ["word-yellow", "word-coral", "word-navy", "word-white"];
@@ -162,8 +162,6 @@ function initHeroAnimation() {
     }, "-=0.3");
 }
 
-initHeroAnimation();
-
 /* =========================================
    SALADIER PHYSIQUE (Matter.js)
 ========================================= */
@@ -288,16 +286,26 @@ function initBowlPhysics() {
     };
 
     // Adapte les murs si la fenêtre change de taille.
-    window.addEventListener("resize", () => {
-        W = saladier.clientWidth;
-        H = saladier.clientHeight;
-        buildWalls();
+    let resizeTimer;
 
-        items.forEach(({ w, body }) => {
-            if (body && body.position.x > W - w / 2) {
-                Body.setPosition(body, { x: W - w / 2, y: body.position.y });
-            }
-        });
+    window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+
+        resizeTimer = setTimeout(() => {
+            W = saladier.clientWidth;
+            H = saladier.clientHeight;
+            buildWalls();
+
+            // Remet dans le saladier les mots qui seraient sortis.
+            items.forEach(({ w, h, body }) => {
+                if (!body) return;
+
+                Body.setPosition(body, {
+                    x: Math.min(Math.max(body.position.x, w / 2), W - w / 2),
+                    y: Math.min(body.position.y, H - h / 2 - 4)
+                });
+            });
+        }, 150);
     });
 
     // La simulation ne tourne que quand le saladier est visible (économise la batterie).
@@ -309,8 +317,6 @@ function initBowlPhysics() {
         }
     }).observe(saladier);
 }
-
-initBowlPhysics();
 
 /* =========================================
    PORTRAIT (GSAP + ScrollTrigger)
@@ -359,8 +365,6 @@ function initPortrait() {
         });
     }
 }
-
-initPortrait();
 
 /* =========================================
    TRANSITION « LIVRE » ENTRE LES SECTIONS (GSAP)
@@ -439,9 +443,16 @@ function initPageTurn() {
             if (!busy) turnTo(target, hash);
         });
     });
-}
 
-initPageTurn();
+    // Le bouton retour du navigateur ramène à la section précédente.
+    window.addEventListener("popstate", () => {
+        const target = location.hash
+            ? document.querySelector(location.hash)
+            : document.getElementById("accueil");
+
+        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+}
 
 /* =========================================
    « UNE JOURNÉE À DAKAR » : ANIMATIONS AU SCROLL (GSAP)
@@ -592,4 +603,35 @@ function initScrollStory() {
     window.addEventListener("load", () => ScrollTrigger.refresh());
 }
 
-initScrollStory();
+/* =========================================
+   INITIALISATION SÉCURISÉE
+========================================= */
+
+// Si une animation plante, les autres continuent de fonctionner.
+function safely(fn) {
+    try {
+        fn();
+    } catch (error) {
+        console.error(`Erreur dans ${fn.name}`, error);
+    }
+}
+
+safely(() => {
+    try {
+        initHeroAnimation();
+    } catch (error) {
+        // Sans cette sécurité, le texte de l'accueil resterait invisible.
+        document.querySelectorAll(".hero-text > *").forEach((el) => {
+            el.style.visibility = "visible";
+        });
+        throw error;
+    }
+});
+
+// Le saladier attend le chargement des polices, sinon les mots sont mesurés trop petits.
+(document.fonts ? document.fonts.ready : Promise.resolve())
+    .then(() => safely(initBowlPhysics));
+
+safely(initPortrait);
+safely(initPageTurn);
+safely(initScrollStory);

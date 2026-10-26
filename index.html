@@ -99,12 +99,11 @@
                 </div>
             </div>
         </section>
+
         <!-- Bandeau des compétences (rempli et animé par script.js) -->
         <div class="marquee" aria-hidden="true">
             <div class="marquee__track" id="marquee-track"></div>
         </div>
-
-
 
 
         <!-- =========================
@@ -115,6 +114,8 @@
             <h2>Ce que j'ai construit</h2>
 
             <div class="cards">
+
+                <!-- Sénégal Challenge -->
                 <article class="card">
                     <a class="card-shot" href="https://senegal-challenge.netlify.app" target="_blank" rel="noopener" aria-label="Ouvrir Sénégal Challenge">
                         <span class="card-shot__bar" aria-hidden="true"><i></i><i></i><i></i><em>senegal-challenge.netlify.app</em></span>
@@ -133,7 +134,47 @@
                     </div>
                 </article>
 
-                <!-- Étape suivante : les autres projets seront ajoutés ici -->
+                <!-- SénSanté -->
+                <article class="card">
+                    <p class="card-tag">Machine Learning · Python, FastAPI</p>
+                    <h3>SénSanté</h3>
+                    <p>
+                        Assistant de pré-diagnostic médical pour le Sénégal : à partir des symptômes saisis,
+                        un modèle de Machine Learning prédit la maladie la plus probable parmi le paludisme,
+                        la grippe et la typhoïde. Le modèle est exposé par une API REST FastAPI,
+                        documentée automatiquement (Swagger), et utilisée par une interface web.
+                    </p>
+                    <p>
+                        Projet académique réalisé pour le cours « Intégration de Modèles IA » à l'ESP.
+                        Il ne remplace pas un avis médical.
+                    </p>
+                    <!-- Ajoute ta contribution, puis retire les marques de commentaire :
+                    <p><strong>Ma part :</strong> ... </p>
+                    -->
+                    <div class="card-links">
+                        <a class="btn btn-secondary" href="https://github.com/jeynita/sensante" target="_blank" rel="noopener">Code source</a>
+                    </div>
+                </article>
+
+                <!-- Site Actu Dynamique -->
+                <article class="card">
+                    <p class="card-tag">Site web dynamique · PHP, MySQL, JavaScript</p>
+                    <h3>Site Actu Dynamique</h3>
+                    <p>
+                        Site d'actualité avec consultation publique des articles et gestion de contenu
+                        selon trois profils : visiteur, éditeur et administrateur. Back-end PHP (PDO) et MySQL,
+                        sessions pour protéger les pages, requêtes préparées contre les injections SQL
+                        et validation des formulaires côté client et côté serveur.
+                    </p>
+                    <!-- Ajoute ta contribution, puis retire les marques de commentaire :
+                    <p><strong>Ma part :</strong> ... </p>
+                    -->
+                    <div class="card-links">
+                        <a class="btn btn-secondary" href="https://github.com/jeynita/Site_Actu_Dynamique" target="_blank" rel="noopener">Code source</a>
+                    </div>
+                </article>
+
+                <!-- Étape suivante : la carte LigueyConnect sera ajoutée ici -->
             </div>
         </section>
 
@@ -191,6 +232,8 @@
                 <li>Spring Boot</li>
                 <li>JDBC</li>
                 <li>MySQL</li>
+                <li>Python</li>
+                <li>FastAPI</li>
                 <li>JavaScript</li>
                 <li>TypeScript</li>
                 <li>Node.js</li>
