@@ -1,0 +1,449 @@
+/* =========================================
+   PORTFOLIO — DIEYNABA BALDÉ
+========================================= */
+
+:root {
+    --navy: #102C3A;
+    --yellow: #F6C453;
+    --coral: #E45D43;
+    --cream: #F7F4ED;
+    --white: #FFFFFF;
+    --muted: #68777C;
+    --text: #52636A;
+    --border: #E4E0D6;
+    --shadow-navy: #081E28;
+    --shadow-yellow: #D9A936;
+    --shadow-coral: #B83B28;
+    --shadow-soft: #E3DDCF;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--cream);
+    background-image: radial-gradient(rgba(16, 44, 58, 0.07) 1.5px, transparent 1.6px);
+    background-size: 22px 22px;
+    color: var(--navy);
+    font-family: "Nunito Sans", sans-serif;
+    line-height: 1.6;
+    overflow-x: clip;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+a {
+    color: inherit;
+}
+
+/* ---------- En-tête ---------- */
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 24px 6%;
+}
+
+.logo {
+    font-family: "Fredoka", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.logo span {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 0 10px 2px;
+    border-radius: 10px;
+    background: var(--coral);
+    color: var(--white);
+    rotate: -3deg;
+    box-shadow: 0 3px 0 var(--shadow-coral);
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.nav a {
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.nav a:hover {
+    background: var(--yellow);
+}
+
+/* ---------- Boutons ---------- */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 13px 24px;
+    border: 2px solid transparent;
+    border-radius: 16px;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 0.98rem;
+    font-weight: 900;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary {
+    background: var(--coral);
+    color: var(--white);
+    box-shadow: 0 5px 0 var(--shadow-coral);
+}
+
+.btn-secondary {
+    border-color: var(--border);
+    background: var(--white);
+    color: var(--navy);
+    box-shadow: 0 5px 0 var(--shadow-soft);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn:active {
+    transform: translateY(3px);
+}
+
+.btn:focus-visible,
+.nav a:focus-visible,
+.logo:focus-visible {
+    outline: 3px solid var(--coral);
+    outline-offset: 4px;
+}
+
+/* ---------- Mise en page ---------- */
+
+main {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 6%;
+}
+
+.section {
+    padding: 70px 0 20px;
+    scroll-margin-top: 20px;
+}
+
+.section-label {
+    display: inline-block;
+    margin-bottom: 14px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--yellow);
+    color: var(--navy);
+    font-family: "Fredoka", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    rotate: -2deg;
+    box-shadow: 0 3px 0 var(--shadow-yellow);
+}
+
+h2 {
+    margin-bottom: 26px;
+    font-family: "Fredoka", sans-serif;
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+h3 {
+    margin-bottom: 10px;
+    font-family: "Fredoka", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.lead {
+    max-width: 640px;
+    margin-bottom: 28px;
+    color: var(--text);
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+/* ---------- Accueil ---------- */
+
+.hero {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: 40px;
+    padding: 50px 0 30px;
+    scroll-margin-top: 20px;
+}
+
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: #FFF0D0;
+    color: var(--navy);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+}
+
+h1 {
+    font-family: "Fredoka", sans-serif;
+    font-size: clamp(2.6rem, 8vw, 4.8rem);
+    font-weight: 600;
+    line-height: 1.02;
+    letter-spacing: -1.5px;
+}
+
+h1 span {
+    display: inline-block;
+    padding: 0 8px;
+    background: linear-gradient(transparent 64%, var(--yellow) 64%);
+}
+
+.hero-description {
+    max-width: 520px;
+    margin: 24px 0 18px;
+    color: var(--text);
+    font-size: 1.08rem;
+    font-weight: 600;
+}
+
+.status {
+    display: inline-block;
+    margin-bottom: 26px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: var(--white);
+    font-size: 0.88rem;
+    font-weight: 800;
+    box-shadow: 0 3px 0 var(--shadow-soft);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+/* Saladier (provisoire, remplacé à l'étape 3) */
+
+.saladier {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    min-height: 260px;
+    padding: 30px 20px;
+    border-radius: 36px 36px 120px 120px;
+    background: var(--navy);
+    box-shadow: 0 8px 0 var(--shadow-navy), 0 18px 30px rgba(16, 44, 58, 0.18);
+}
+
+.word {
+    padding: 10px 18px;
+    border-radius: 16px;
+    font-family: "Fredoka", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.word-yellow {
+    background: var(--yellow);
+    color: var(--navy);
+    rotate: -5deg;
+    box-shadow: 0 4px 0 var(--shadow-yellow);
+}
+
+.word-coral {
+    background: var(--coral);
+    color: var(--white);
+    rotate: 4deg;
+    box-shadow: 0 4px 0 var(--shadow-coral);
+}
+
+.word-navy {
+    border: 2px solid var(--cream);
+    color: var(--cream);
+    rotate: -2deg;
+}
+
+.word-white {
+    background: var(--cream);
+    color: var(--navy);
+    rotate: 6deg;
+}
+
+/* ---------- Projets ---------- */
+
+.cards {
+    display: grid;
+    gap: 22px;
+}
+
+.card {
+    padding: 28px;
+    border-radius: 28px;
+    background: var(--white);
+    box-shadow: 0 7px 0 var(--shadow-soft), 0 16px 30px rgba(16, 44, 58, 0.06);
+}
+
+.card > p:not(.card-tag) {
+    max-width: 620px;
+    color: var(--text);
+    font-weight: 600;
+}
+
+.card-tag {
+    display: inline-block;
+    margin-bottom: 12px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: var(--cream);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+}
+
+.card-links,
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 22px;
+}
+
+/* ---------- À propos ---------- */
+
+.timeline {
+    display: grid;
+    gap: 14px;
+    max-width: 640px;
+    list-style: none;
+}
+
+.timeline li {
+    padding: 16px 18px 16px 20px;
+    border-left: 8px solid var(--coral);
+    border-radius: 18px;
+    background: var(--white);
+    box-shadow: 0 4px 0 var(--shadow-soft);
+}
+
+.timeline li:nth-child(even) {
+    border-left-color: var(--yellow);
+}
+
+.timeline-date {
+    display: block;
+    margin-bottom: 2px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* ---------- Compétences ---------- */
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    list-style: none;
+}
+
+.skills li {
+    padding: 10px 18px;
+    border-radius: 14px;
+    background: var(--white);
+    font-weight: 800;
+    box-shadow: 0 4px 0 var(--shadow-soft);
+    transition: transform 0.2s ease;
+}
+
+.skills li:nth-child(4n + 1) { background: var(--yellow); box-shadow: 0 4px 0 var(--shadow-yellow); }
+.skills li:nth-child(4n + 3) { background: var(--coral); color: var(--white); box-shadow: 0 4px 0 var(--shadow-coral); }
+
+.skills li:hover {
+    transform: translateY(-3px) rotate(-2deg);
+}
+
+/* ---------- Pied de page ---------- */
+
+.footer {
+    margin-top: 70px;
+    padding: 28px 6%;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 760px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .saladier {
+        min-height: 200px;
+    }
+
+    .section {
+        padding-top: 54px;
+    }
+
+    .card {
+        padding: 22px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .btn,
+    .skills li,
+    .nav a {
+        transition: none;
+    }
+}

@@ -1,0 +1,1 @@
+/* Étape 3 : le saladier de compétences interactif sera ajouté ici. */

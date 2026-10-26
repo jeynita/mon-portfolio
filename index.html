@@ -3,9 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio en construction</title>
+
+    <meta name="description" content="Portfolio de Dieynaba Baldé, étudiante en génie logiciel à Dakar, à la recherche d'un stage à partir de mai 2027.">
+    <meta name="theme-color" content="#F7F4ED">
+
+    <title>Dieynaba Baldé | Étudiante en génie logiciel</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
+
 <body>
-    <h1>Portfolio en construction</h1>
+    <header class="header">
+        <a class="logo" href="#accueil">Dieynaba<span>Baldé</span></a>
+
+        <nav class="nav" aria-label="Navigation principale">
+            <a href="#projets">Projets</a>
+            <a href="#a-propos">À propos</a>
+            <a href="#competences">Compétences</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- =========================
+             1. ACCUEIL
+        ========================== -->
+        <section class="hero" id="accueil">
+            <div class="hero-text">
+                <p class="eyebrow">DIEYNABA BALDÉ · ÉTUDIANTE EN GÉNIE LOGICIEL</p>
+
+                <h1>
+                    Je transforme mes idées en
+                    <span>projets qui marchent.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Étudiante en L3 génie logiciel et systèmes informatiques à l'ESP de Dakar,
+                    je conçois et je déploie des applications web et Java, de l'idée à la mise en ligne.
+                </p>
+
+                <p class="status">À la recherche d'un stage à Dakar à partir de mai 2027</p>
+
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#projets">Voir mes projets</a>
+                    <a class="btn btn-secondary" href="#contact">Me contacter</a>
+                </div>
+            </div>
+
+            <!-- Étape 3 : le saladier de compétences interactif remplacera ce bloc -->
+            <div class="saladier" id="saladier" aria-hidden="true">
+                <span class="word word-yellow">Java</span>
+                <span class="word word-coral">Spring Boot</span>
+                <span class="word word-navy">JavaScript</span>
+                <span class="word word-white">Git</span>
+            </div>
+        </section>
+
+
+        <!-- =========================
+             2. PROJETS
+        ========================== -->
+        <section class="section" id="projets">
+            <p class="section-label">Projets</p>
+            <h2>Ce que j'ai construit</h2>
+
+            <div class="cards">
+                <article class="card">
+                    <p class="card-tag">Jeu web · HTML, CSS, JavaScript</p>
+                    <h3>Sénégal Challenge</h3>
+                    <p>
+                        Jeu de mime et de devinettes à jouer entre amis sur un seul téléphone :
+                        duos tirés au hasard, saladier de mots, chrono, scores et guide de première visite.
+                        Conçu, déployé et amélioré à partir des retours de joueurs.
+                    </p>
+                    <div class="card-links">
+                        <a class="btn btn-primary" href="https://jeynita.github.io/senegal-challenge/" target="_blank" rel="noopener">Jouer</a>
+                        <a class="btn btn-secondary" href="https://github.com/jeynita/senegal-challenge" target="_blank" rel="noopener">Code source</a>
+                    </div>
+                </article>
+
+                <!-- Étape 5 : les autres projets seront ajoutés ici -->
+            </div>
+        </section>
+
+
+        <!-- =========================
+             3. À PROPOS
+        ========================== -->
+        <section class="section" id="a-propos">
+            <p class="section-label">À propos</p>
+            <h2>Mon parcours</h2>
+
+            <p class="lead">
+                J'aime comprendre comment les choses fonctionnent, expérimenter, puis mettre en ligne
+                ce que j'ai construit. Je progresse en créant des projets concrets et en apprenant de chaque bug.
+            </p>
+
+            <ol class="timeline">
+                <li>
+                    <span class="timeline-date">2026 - 2027</span>
+                    <p><strong>Licence 3 génie logiciel et systèmes informatiques</strong>, École Supérieure Polytechnique, Dakar</p>
+                </li>
+                <li>
+                    <span class="timeline-date">Mai - juillet 2026</span>
+                    <p><strong>Stage de 3 mois</strong> chez InTouch Group</p>
+                </li>
+                <li>
+                    <span class="timeline-date">2026</span>
+                    <p><strong>DUT en génie logiciel</strong>, École Supérieure Polytechnique, Dakar</p>
+                </li>
+            </ol>
+        </section>
+
+
+        <!-- =========================
+             4. COMPÉTENCES
+        ========================== -->
+        <section class="section" id="competences">
+            <p class="section-label">Compétences</p>
+            <h2>Ce que je maîtrise</h2>
+
+            <!-- Garde uniquement ce que tu peux expliquer en entretien -->
+            <ul class="skills">
+                <li>Java</li>
+                <li>Spring Boot</li>
+                <li>JDBC</li>
+                <li>MySQL</li>
+                <li>JavaScript</li>
+                <li>TypeScript</li>
+                <li>Node.js</li>
+                <li>React</li>
+                <li>PHP</li>
+                <li>HTML / CSS</li>
+                <li>Git / GitHub</li>
+                <li>Docker</li>
+                <li>Google Cloud</li>
+                <li>OAuth2 / Keycloak</li>
+                <li>UML / Merise</li>
+            </ul>
+        </section>
+
+
+        <!-- =========================
+             5. CONTACT
+        ========================== -->
+        <section class="section" id="contact">
+            <p class="section-label">Contact</p>
+            <h2>Travaillons ensemble</h2>
+
+            <p class="lead">
+                Je cherche un stage en développement logiciel à Dakar à partir de mai 2027.
+                Écris-moi, je réponds vite.
+            </p>
+
+            <div class="contact-links">
+                <!-- A REMPLACER par ton adresse e-mail -->
+                <a class="btn btn-primary" href="mailto:ton.email@exemple.com">Envoyer un e-mail</a>
+                <!-- A REMPLACER par l'adresse de ton profil LinkedIn -->
+                <a class="btn btn-secondary" href="https://www.linkedin.com/in/TON-PROFIL" target="_blank" rel="noopener">LinkedIn</a>
+                <a class="btn btn-secondary" href="https://github.com/jeynita" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>Dieynaba Baldé · Dakar · Fait avec du code et beaucoup de bugs corrigés.</p>
+    </footer>
 </body>
 </html>
