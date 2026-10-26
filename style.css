@@ -447,3 +447,92 @@ h1 span {
         transition: none;
     }
 }
+
+/* =========================================
+   SALADIER INTERACTIF
+========================================= */
+
+.saladier-wrap {
+    display: grid;
+    gap: 18px;
+}
+
+.draw-hint {
+    color: var(--muted);
+    font-size: 0.88rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+button.word {
+    border: 0;
+    font-family: "Fredoka", sans-serif;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease, scale 0.2s ease;
+}
+
+button.word.word-navy {
+    border: 2px solid var(--cream);
+}
+
+button.word:hover {
+    scale: 1.08;
+}
+
+button.word:focus-visible {
+    outline: 3px solid var(--coral);
+    outline-offset: 3px;
+}
+
+button.word.is-active {
+    scale: 1.18;
+    z-index: 1;
+}
+
+.saladier.has-active .word:not(.is-active) {
+    opacity: 0.45;
+}
+
+.draw-result {
+    padding: 18px 20px 20px;
+    border-radius: 22px;
+    background: var(--white);
+    box-shadow: 0 5px 0 var(--shadow-soft), 0 12px 24px rgba(16, 44, 58, 0.06);
+    animation: drawPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.draw-skill {
+    margin-bottom: 6px;
+    color: var(--coral);
+    font-family: "Fredoka", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.draw-proof {
+    color: var(--text);
+    font-weight: 700;
+}
+
+@keyframes drawPop {
+    from {
+        opacity: 0;
+        transform: translateY(14px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .draw-result {
+        animation: none;
+    }
+
+    button.word {
+        transition: none;
+    }
+}

@@ -59,12 +59,17 @@
                 </div>
             </div>
 
-            <!-- Étape 3 : le saladier de compétences interactif remplacera ce bloc -->
-            <div class="saladier" id="saladier" aria-hidden="true">
-                <span class="word word-yellow">Java</span>
-                <span class="word word-coral">Spring Boot</span>
-                <span class="word word-navy">JavaScript</span>
-                <span class="word word-white">Git</span>
+                        <div class="saladier-wrap">
+                <p class="draw-hint">Clique sur un mot, ou tire-en un au hasard.</p>
+
+                <div class="saladier" id="saladier"></div>
+
+                <button type="button" class="btn btn-primary" id="draw-button">Tirer un mot</button>
+
+                <div class="draw-result" id="draw-result" aria-live="polite" hidden>
+                    <p class="draw-skill" id="draw-skill"></p>
+                    <p class="draw-proof" id="draw-proof"></p>
+                </div>
             </div>
         </section>
 
