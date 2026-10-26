@@ -1,7 +1,7 @@
-/* =========================================
-   PORTFOLIO — DIEYNABA BALDÉ
-   « Une journée à Dakar » : sable, indigo, terre cuite
-========================================= */
+/* 
+    Mon PORTFOLIO en mode
+    Une journée à Dakar  : sable, indigo, terre cuite.
+ */
 
 :root {
     --sand: #F3EADB;
@@ -68,7 +68,7 @@ a {
     color: inherit;
 }
 
-/* ---------- Décor fixe : ciel, soleil, baobab ---------- */
+/*  Décor fixe : ciel, soleil, baobab  */
 
 .sky {
     position: fixed;
@@ -117,7 +117,7 @@ a {
     transform-origin: left;
 }
 
-/* ---------- En-tête ---------- */
+/*  En-tête  */
 
 .header {
     position: sticky;
@@ -192,7 +192,7 @@ a {
     transform: scaleX(1);
 }
 
-/* ---------- Boutons ---------- */
+/*  Boutons  */
 
 .btn {
     display: inline-flex;
@@ -246,7 +246,7 @@ a {
     outline-offset: 3px;
 }
 
-/* ---------- Mise en page ---------- */
+/*  Mise en page  */
 
 main {
     max-width: 1040px;
@@ -306,7 +306,7 @@ h3 {
     font-size: 1.08rem;
 }
 
-/* ---------- Accueil ---------- */
+/*  Accueil  */
 
 .hero {
     display: grid;
@@ -410,7 +410,7 @@ h1 .hl::after {
     gap: 14px;
 }
 
-/* ---------- Saladier (une calebasse indigo) ---------- */
+/*  Saladier (une calebasse indigo)  */
 
 .saladier {
     display: flex;
@@ -458,7 +458,7 @@ h1 .hl::after {
     rotate: 2deg;
 }
 
-/* ---------- Bandeau défilant ---------- */
+/*  Bandeau défilant  */
 
 .marquee {
     width: 100vw;
@@ -498,7 +498,7 @@ h1 .hl::after {
     font-style: normal;
 }
 
-/* ---------- Projets ---------- */
+/*  Projets  */
 
 .cards {
     display: grid;
@@ -545,7 +545,7 @@ h1 .hl::after {
 }
 
 
-/* ---------- Capture d'écran d'un projet ---------- */
+/*  Capture d'écran d'un projet  */
 
 .card-shot {
     position: relative;
@@ -623,7 +623,7 @@ h1 .hl::after {
     }
 }
 
-/* ---------- À propos ---------- */
+/*  À propos  */
 
 .about-grid {
     display: grid;
@@ -692,7 +692,7 @@ h1 .hl::after {
     text-transform: uppercase;
 }
 
-/* ---------- Portrait ---------- */
+/*  Portrait  */
 
 .portrait {
     position: relative;
@@ -728,7 +728,7 @@ h1 .hl::after {
     object-fit: cover;
 }
 
-/* ---------- Compétences ---------- */
+/*  Compétences  */
 
 .skills {
     display: flex;
@@ -754,7 +754,7 @@ h1 .hl::after {
     translate: 0 -3px;
 }
 
-/* ---------- Contact (la nuit tombe) ---------- */
+/*  Contact (la nuit tombe)  */
 
 #contact {
     position: relative;
@@ -810,7 +810,7 @@ h1 .hl::after {
     color: var(--ink);
 }
 
-/* ---------- Pied de page ---------- */
+/*  Pied de page  */
 
 .footer {
     margin-top: 60px;
@@ -821,9 +821,9 @@ h1 .hl::after {
     font-weight: 500;
 }
 
-/* =========================================
-   SALADIER INTERACTIF
-========================================= */
+/* 
+    SALADIER INTERACTIF
+ */
 
 .saladier-wrap {
     display: grid;
@@ -901,9 +901,9 @@ button.word.is-active {
     }
 }
 
-/* =========================================
-   SALADIER PHYSIQUE (Matter.js)
-========================================= */
+/* 
+    SALADIER PHYSIQUE (Matter.js)
+ */
 
 .saladier.is-physics {
     position: relative;
@@ -923,9 +923,9 @@ button.word.is-active {
     transition: opacity 0.2s ease, scale 0.2s ease;
 }
 
-/* =========================================
-   TRANSITION « LIVRE » (GSAP)
-========================================= */
+/* 
+    TRANSITION « LIVRE » (GSAP)
+ */
 
 .book {
     position: fixed;
@@ -1030,7 +1030,7 @@ button.word.is-active {
     font-style: italic;
 }
 
-/* ---------- Mobile ---------- */
+/*  Mobile  */
 
 @media (max-width: 760px) {
     .header {
@@ -1083,7 +1083,7 @@ button.word.is-active {
     }
 }
 
-/* ---------- Accessibilité : réduire les animations ---------- */
+/*  Accessibilité : réduire les animations  */
 
 @media (prefers-reduced-motion: reduce) {
     html {

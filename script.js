@@ -1,11 +1,9 @@
-/* =========================================
-   PORTFOLIO — SALADIER DE COMPÉTENCES
-========================================= */
+/* 
+   PORTFOLIO en mode SALADIER DE COMPÉTENCES
+ */
 
 /*
- * Chaque preuve doit citer un vrai projet.
- * Ajoute Java, Spring Boot, Docker, UML / Merise dès que tu as
- * un projet réel à citer (par exemple : "Utilisé dans ... pour ...").
+ * Chaque competence cite un projet auquel il est ratache.
  */
 const SKILLS = [
     { name: "JavaScript", proof: "Toute la logique de Sénégal Challenge : duos tirés au hasard, chrono, scores et guide de première visite." },
@@ -75,9 +73,9 @@ if (saladier && drawButton) {
     });
 }
 
-/* =========================================
+/* 
    ANIMATION D'ENTRÉE (GSAP)
-========================================= */
+ */
 
 // Découpe chaque mot d'un élément dans un <span class="w">.
 function splitWords(root) {
@@ -139,12 +137,12 @@ function initHeroAnimation() {
 
     tl.from(".eyebrow", { y: 14, autoAlpha: 0, duration: 0.5 })
       .from(words, {
-          y: 36,
-          rotation: 3,
-          autoAlpha: 0,
-          duration: 0.7,
-          ease: "back.out(1.6)",
-          stagger: 0.07
+        y: 36,
+        rotation: 3,
+        autoAlpha: 0,
+        duration: 0.7,
+        ease: "back.out(1.6)",
+        stagger: 0.07
       }, "-=0.2");
 
     if (highlight) {
@@ -163,9 +161,9 @@ function initHeroAnimation() {
     }, "-=0.3");
 }
 
-/* =========================================
-   SALADIER PHYSIQUE (Matter.js)
-========================================= */
+/* 
+    SALADIER PHYSIQUE (Matter.js)
+ */
 
 function initBowlPhysics() {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -319,9 +317,9 @@ function initBowlPhysics() {
     }).observe(saladier);
 }
 
-/* =========================================
+/* 
    PORTRAIT (GSAP + ScrollTrigger)
-========================================= */
+ */
 
 function initPortrait() {
     const portrait = document.querySelector(".portrait");
@@ -367,9 +365,9 @@ function initPortrait() {
     }
 }
 
-/* =========================================
-   TRANSITION « LIVRE » ENTRE LES SECTIONS (GSAP)
-========================================= */
+/* 
+TRANSITION « LIVRE » ENTRE LES SECTIONS (GSAP)
+*/
 
 function initPageTurn() {
     const book = document.getElementById("book");
@@ -455,9 +453,9 @@ function initPageTurn() {
     });
 }
 
-/* =========================================
+/* 
    « UNE JOURNÉE À DAKAR » : ANIMATIONS AU SCROLL (GSAP)
-========================================= */
+ */
 
 // Bandeau de compétences (deux copies pour une boucle sans coupure).
 function buildMarquee() {
@@ -604,9 +602,9 @@ function initScrollStory() {
     window.addEventListener("load", () => ScrollTrigger.refresh());
 }
 
-/* =========================================
-   INITIALISATION SÉCURISÉE
-========================================= */
+/* 
+    INITIALISATION SÉCURISÉE
+ */
 
 // Si une animation plante, les autres continuent de fonctionner.
 function safely(fn) {

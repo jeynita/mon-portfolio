@@ -18,25 +18,25 @@
         {
             intro: true,
             title: "Bienvenue !",
-            text: "Je te propose une visite express de 30 secondes. Pas de blabla : tu vas surtout cliquer.",
+            text: "Cela te dit une visite guidée ? .",
             next: "C'est parti",
             skip: "Non merci"
         },
         {
             title: "Pioche un mot",
-            text: "Ce saladier contient mes compétences. Chacune est reliée à un projet réel.",
+            text: "Ce saladier contient mes compétences. Chacune est reliée à un projet sur lequel j'ai travaillé.",
             target: ".saladier-wrap",
             pad: 14,
             wait: {
                 selector: "#draw-button",
                 hint: "À toi : clique sur « Tirer un mot »",
-                done: "Bien joué ! Sous le mot tiré, tu vois la preuve : le projet où je l'ai utilisé.",
+                done: "Bien joué ! Sous le mot tiré, tu vois la preuve ;c'est a dire le projet où je l'ai utilisé.",
                 delay: 500
             }
         },
         {
             title: "Tourne les pages",
-            text: "Le menu te fait passer d'une section à l'autre, comme dans un livre.",
+            text: "Le menu te fait passer d'une section à l'autre comme dans un livre.",
             target: ".nav",
             pad: 8,
             wait: {
@@ -48,7 +48,7 @@
         },
         {
             title: "Mes projets",
-            text: "Chaque carte mène au code source sur GitHub. Sénégal Challenge se joue directement en ligne.",
+            text: "Chaque carte mène au code source sur GitHub.  De plus, le Sénégal Challenge se joue est deja en ligne.",
             target: "#projets .card",
             pad: 12
         },
@@ -60,7 +60,7 @@
         },
         {
             title: "Parlons-nous",
-            text: "Je cherche un stage à Dakar à partir de mai 2027. Un e-mail ou un message LinkedIn suffit.",
+            text: "Je cherche un stage à Dakar à partir de mai 2027. Vous pouvez me contacter via LinkedIn ou par e-mail.",
             target: "#contact .contact-links",
             pad: 14
         }
@@ -68,7 +68,7 @@
 
     const TOTAL = STEPS.length - 1; // sans l'invitation
 
-    /* ---------- Mémorisation (première visite) ---------- */
+    /*  Mémorisation (première visite)  */
 
     function isDone() {
         try {
@@ -86,7 +86,7 @@
         }
     }
 
-    /* ---------- Construction de l'interface ---------- */
+    /*  Construction de l'interface  */
 
     function make(tag, className, content) {
         const node = document.createElement(tag);
@@ -148,7 +148,7 @@
     root.append(dim, spot, card);
     document.body.appendChild(root);
 
-    /* ---------- État ---------- */
+    /*  État  */
 
     let isOpen = false;
     let shown = false;
@@ -164,7 +164,7 @@
     let doneTimer = 0;
     let glideTimer = 0;
 
-    /* ---------- Outils ---------- */
+    /*  Outils  */
 
     function clamp(value, min, max) {
         return Math.min(Math.max(value, min), max);
@@ -186,7 +186,7 @@
             .join("|");
     }
 
-    /* ---------- Spotlight et bulle ---------- */
+    /*  Spotlight et bulle  */
 
     function closeSpot(animate = true) {
         spot.classList.toggle("is-instant", !animate);
@@ -306,7 +306,7 @@
         if (rectKey(target.getBoundingClientRect()) !== lastKey) applyLayout(false, false);
     }
 
-    /* ---------- Défilement ---------- */
+    /*  Défilement  */
 
     function scrollDelta(element) {
         if (isPinned(element)) return 0;
@@ -360,7 +360,7 @@
         });
     }
 
-    /* ---------- Étapes interactives ---------- */
+    /*  Étapes interactives  */
 
     function disarm() {
         if (clickListener) {
@@ -405,7 +405,7 @@
         document.addEventListener("click", clickListener, true);
     }
 
-    /* ---------- Navigation entre les étapes ---------- */
+    /*  Navigation entre les étapes  */
 
     function fill(step) {
         const last = index === STEPS.length - 1;
@@ -503,7 +503,7 @@
         }
     }
 
-    /* ---------- Fin de la visite ---------- */
+    /*  Fin de la visite  */
 
     function confetti() {
         if (reduceMotion) return;
@@ -577,7 +577,7 @@
         go(0);
     }
 
-    /* ---------- Boutons et clavier ---------- */
+    /*  Boutons et clavier  */
 
     nextButton.addEventListener("click", () => {
         if (index >= STEPS.length - 1) closeTour(true);
@@ -607,7 +607,7 @@
         if (isOpen && !card.classList.contains("is-away")) applyLayout(false, false);
     });
 
-    /* ---------- Lien « Revoir la visite » dans le pied de page ---------- */
+    /*  Lien « Revoir la visite » dans le pied de page  */
 
     const pageFooter = document.querySelector(".footer");
 
@@ -619,7 +619,7 @@
         pageFooter.appendChild(replayButton);
     }
 
-    /* ---------- Démarrage : première visite uniquement ---------- */
+    /*  Démarrage : première visite uniquement  */
 
     function start() {
         if (isDone()) return;
