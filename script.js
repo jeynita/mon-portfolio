@@ -30,7 +30,8 @@ let currentIndex = -1;
 function selectSkill(index) {
     currentIndex = index;
 
-        if (window.kickWord) window.kickWord(index);
+    // Petit saut du mot si la physique est active.
+    if (window.kickWord) window.kickWord(index);
 
     saladier.classList.add("has-active");
 
@@ -179,7 +180,11 @@ function initBowlPhysics() {
     if (!wordEls.length) return;
 
     saladier.classList.add("is-physics");
-    wordEls.forEach((el) => { el.style.visibility = "hidden"; });
+
+    wordEls.forEach((el) => {
+        el.style.rotate = "none"; // la rotation vient maintenant de la physique
+        el.style.visibility = "hidden";
+    });
 
     const engine = Engine.create();
     engine.gravity.y = 1;
@@ -306,3 +311,53 @@ function initBowlPhysics() {
 }
 
 initBowlPhysics();
+
+/* =========================================
+   PORTRAIT (GSAP + ScrollTrigger)
+========================================= */
+
+function initPortrait() {
+    const portrait = document.querySelector(".portrait");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (!portrait || reduceMotion) return;
+    if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const frame = portrait.querySelector(".portrait-frame");
+    const bg = portrait.querySelector(".portrait-bg");
+
+    // 1. Apparition douce quand la section arrive à l'écran (une seule fois)
+    gsap.timeline({
+        defaults: { ease: "power3.out" },
+        scrollTrigger: { trigger: portrait, start: "top 85%", once: true }
+    })
+        .from(bg, { scale: 0.7, rotation: -10, autoAlpha: 0, duration: 0.8 })
+        .from(frame, { y: 28, scale: 0.95, autoAlpha: 0, duration: 0.8 }, "-=0.55");
+
+    // 2. Léger effet d'inclinaison au survol (souris uniquement, pas sur téléphone)
+    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        const moveX = gsap.quickTo(frame, "x", { duration: 0.6, ease: "power3.out" });
+        const moveY = gsap.quickTo(frame, "y", { duration: 0.6, ease: "power3.out" });
+        const tilt = gsap.quickTo(frame, "rotation", { duration: 0.6, ease: "power3.out" });
+
+        portrait.addEventListener("pointermove", (e) => {
+            const rect = portrait.getBoundingClientRect();
+            const px = (e.clientX - rect.left) / rect.width - 0.5;
+            const py = (e.clientY - rect.top) / rect.height - 0.5;
+
+            moveX(px * 10);
+            moveY(py * 10);
+            tilt(px * 3);
+        });
+
+        portrait.addEventListener("pointerleave", () => {
+            moveX(0);
+            moveY(0);
+            tilt(0);
+        });
+    }
+}
+
+initPortrait();

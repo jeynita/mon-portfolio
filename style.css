@@ -1,7 +1,7 @@
 /* =========================================
    PORTFOLIO — DIEYNABA BALDÉ
 ========================================= */
-
+ 
 :root {
     --navy: #102C3A;
     --yellow: #F6C453;
@@ -16,17 +16,17 @@
     --shadow-coral: #B83B28;
     --shadow-soft: #E3DDCF;
 }
-
+ 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
+ 
 html {
     scroll-behavior: smooth;
 }
-
+ 
 body {
     min-height: 100vh;
     background-color: var(--cream);
@@ -37,17 +37,17 @@ body {
     line-height: 1.6;
     overflow-x: clip;
 }
-
+ 
 [hidden] {
     display: none !important;
 }
-
+ 
 a {
     color: inherit;
 }
-
+ 
 /* ---------- En-tête ---------- */
-
+ 
 .header {
     display: flex;
     flex-wrap: wrap;
@@ -58,14 +58,14 @@ a {
     margin: 0 auto;
     padding: 24px 6%;
 }
-
+ 
 .logo {
     font-family: "Fredoka", sans-serif;
     font-size: 1.5rem;
     font-weight: 600;
     text-decoration: none;
 }
-
+ 
 .logo span {
     display: inline-block;
     margin-left: 6px;
@@ -76,13 +76,13 @@ a {
     rotate: -3deg;
     box-shadow: 0 3px 0 var(--shadow-coral);
 }
-
+ 
 .nav {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
 }
-
+ 
 .nav a {
     padding: 8px 14px;
     border-radius: 999px;
@@ -91,13 +91,13 @@ a {
     text-decoration: none;
     transition: background-color 0.2s ease;
 }
-
+ 
 .nav a:hover {
     background: var(--yellow);
 }
-
+ 
 /* ---------- Boutons ---------- */
-
+ 
 .btn {
     display: inline-flex;
     align-items: center;
@@ -113,48 +113,48 @@ a {
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
+ 
 .btn-primary {
     background: var(--coral);
     color: var(--white);
     box-shadow: 0 5px 0 var(--shadow-coral);
 }
-
+ 
 .btn-secondary {
     border-color: var(--border);
     background: var(--white);
     color: var(--navy);
     box-shadow: 0 5px 0 var(--shadow-soft);
 }
-
+ 
 .btn:hover {
     transform: translateY(-3px);
 }
-
+ 
 .btn:active {
     transform: translateY(3px);
 }
-
+ 
 .btn:focus-visible,
 .nav a:focus-visible,
 .logo:focus-visible {
     outline: 3px solid var(--coral);
     outline-offset: 4px;
 }
-
+ 
 /* ---------- Mise en page ---------- */
-
+ 
 main {
     max-width: 1040px;
     margin: 0 auto;
     padding: 0 6%;
 }
-
+ 
 .section {
     padding: 70px 0 20px;
     scroll-margin-top: 20px;
 }
-
+ 
 .section-label {
     display: inline-block;
     margin-bottom: 14px;
@@ -170,7 +170,7 @@ main {
     rotate: -2deg;
     box-shadow: 0 3px 0 var(--shadow-yellow);
 }
-
+ 
 h2 {
     margin-bottom: 26px;
     font-family: "Fredoka", sans-serif;
@@ -178,14 +178,14 @@ h2 {
     font-weight: 600;
     line-height: 1.1;
 }
-
+ 
 h3 {
     margin-bottom: 10px;
     font-family: "Fredoka", sans-serif;
     font-size: 1.6rem;
     font-weight: 600;
 }
-
+ 
 .lead {
     max-width: 640px;
     margin-bottom: 28px;
@@ -193,9 +193,9 @@ h3 {
     font-size: 1.05rem;
     font-weight: 600;
 }
-
+ 
 /* ---------- Accueil ---------- */
-
+ 
 .hero {
     display: grid;
     grid-template-columns: 1.15fr 0.85fr;
@@ -204,7 +204,7 @@ h3 {
     padding: 50px 0 30px;
     scroll-margin-top: 20px;
 }
-
+ 
 .eyebrow {
     display: inline-block;
     margin-bottom: 20px;
@@ -216,7 +216,7 @@ h3 {
     font-weight: 900;
     letter-spacing: 1.5px;
 }
-
+ 
 h1 {
     font-family: "Fredoka", sans-serif;
     font-size: clamp(2.3rem, 6.5vw, 3.8rem);
@@ -224,18 +224,18 @@ h1 {
     line-height: 1.08;
     letter-spacing: -1px;
 }
-
+ 
 h1 .w {
     display: inline-block;
 }
-
+ 
 /* Surlignage jaune : un trait sous « marchent. » qui se dessine */
 h1 .hl {
     position: relative;
     display: inline-block;
     z-index: 0;
 }
-
+ 
 h1 .hl::after {
     content: "";
     position: absolute;
@@ -249,12 +249,12 @@ h1 .hl::after {
     transform: scaleX(var(--hl, 1));
     transform-origin: left center;
 }
-
+ 
 /* Masque le texte jusqu'à l'animation (retiré par le JS) */
 .js .hero-text > * {
     visibility: hidden;
 }
-
+ 
 .hero-description {
     max-width: 520px;
     margin: 24px 0 18px;
@@ -262,7 +262,7 @@ h1 .hl::after {
     font-size: 1.08rem;
     font-weight: 600;
 }
-
+ 
 .status {
     display: inline-block;
     margin-bottom: 26px;
@@ -273,15 +273,15 @@ h1 .hl::after {
     font-weight: 800;
     box-shadow: 0 3px 0 var(--shadow-soft);
 }
-
+ 
 .hero-actions {
     display: flex;
     flex-wrap: wrap;
     gap: 14px;
 }
-
-/* Saladier (provisoire, remplacé à l'étape 3) */
-
+ 
+/* ---------- Saladier ---------- */
+ 
 .saladier {
     display: flex;
     flex-wrap: wrap;
@@ -294,7 +294,7 @@ h1 .hl::after {
     background: var(--navy);
     box-shadow: 0 8px 0 var(--shadow-navy), 0 18px 30px rgba(16, 44, 58, 0.18);
 }
-
+ 
 .word {
     padding: 10px 18px;
     border-radius: 16px;
@@ -302,53 +302,54 @@ h1 .hl::after {
     font-size: 1.3rem;
     font-weight: 700;
 }
-
+ 
 .word-yellow {
     background: var(--yellow);
     color: var(--navy);
     rotate: -5deg;
     box-shadow: 0 4px 0 var(--shadow-yellow);
 }
-
+ 
 .word-coral {
     background: var(--coral);
     color: var(--white);
     rotate: 4deg;
     box-shadow: 0 4px 0 var(--shadow-coral);
 }
-
+ 
 .word-navy {
+    background: transparent;
     border: 2px solid var(--cream);
     color: var(--cream);
     rotate: -2deg;
 }
-
+ 
 .word-white {
     background: var(--cream);
     color: var(--navy);
     rotate: 6deg;
 }
-
+ 
 /* ---------- Projets ---------- */
-
+ 
 .cards {
     display: grid;
     gap: 22px;
 }
-
+ 
 .card {
     padding: 28px;
     border-radius: 28px;
     background: var(--white);
     box-shadow: 0 7px 0 var(--shadow-soft), 0 16px 30px rgba(16, 44, 58, 0.06);
 }
-
+ 
 .card > p:not(.card-tag) {
     max-width: 620px;
     color: var(--text);
     font-weight: 600;
 }
-
+ 
 .card-tag {
     display: inline-block;
     margin-bottom: 12px;
@@ -359,7 +360,7 @@ h1 .hl::after {
     font-weight: 900;
     letter-spacing: 0.5px;
 }
-
+ 
 .card-links,
 .contact-links {
     display: flex;
@@ -367,16 +368,23 @@ h1 .hl::after {
     gap: 14px;
     margin-top: 22px;
 }
-
+ 
 /* ---------- À propos ---------- */
-
+ 
+.about-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    align-items: start;
+    gap: 40px;
+}
+ 
 .timeline {
     display: grid;
     gap: 14px;
     max-width: 640px;
     list-style: none;
 }
-
+ 
 .timeline li {
     padding: 16px 18px 16px 20px;
     border-left: 8px solid var(--coral);
@@ -384,11 +392,11 @@ h1 .hl::after {
     background: var(--white);
     box-shadow: 0 4px 0 var(--shadow-soft);
 }
-
+ 
 .timeline li:nth-child(even) {
     border-left-color: var(--yellow);
 }
-
+ 
 .timeline-date {
     display: block;
     margin-bottom: 2px;
@@ -398,16 +406,53 @@ h1 .hl::after {
     letter-spacing: 1px;
     text-transform: uppercase;
 }
-
+ 
+/* ---------- Portrait ---------- */
+ 
+.portrait {
+    position: relative;
+    width: 100%;
+    max-width: 240px;
+    aspect-ratio: 1;
+    rotate: -3deg;
+}
+ 
+/* Forme jaune derrière la photo */
+.portrait-bg {
+    position: absolute;
+    inset: 0;
+    border-radius: 36px;
+    background: var(--yellow);
+    transform: translate(14px, 14px) rotate(6deg);
+}
+ 
+.portrait-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border: 4px solid var(--white);
+    border-radius: 36px;
+    background: var(--cream);
+    box-shadow: 0 7px 0 var(--shadow-coral);
+}
+ 
+.portrait-frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+ 
 /* ---------- Compétences ---------- */
-
+ 
 .skills {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
     list-style: none;
 }
-
+ 
 .skills li {
     padding: 10px 18px;
     border-radius: 14px;
@@ -416,16 +461,16 @@ h1 .hl::after {
     box-shadow: 0 4px 0 var(--shadow-soft);
     transition: transform 0.2s ease;
 }
-
+ 
 .skills li:nth-child(4n + 1) { background: var(--yellow); box-shadow: 0 4px 0 var(--shadow-yellow); }
 .skills li:nth-child(4n + 3) { background: var(--coral); color: var(--white); box-shadow: 0 4px 0 var(--shadow-coral); }
-
+ 
 .skills li:hover {
     transform: translateY(-3px) rotate(-2deg);
 }
-
+ 
 /* ---------- Pied de page ---------- */
-
+ 
 .footer {
     margin-top: 70px;
     padding: 28px 6%;
@@ -434,90 +479,53 @@ h1 .hl::after {
     font-size: 0.85rem;
     font-weight: 700;
 }
-
-/* ---------- Mobile ---------- */
-
-@media (max-width: 760px) {
-    .hero {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .saladier {
-        min-height: 200px;
-    }
-
-    .section {
-        padding-top: 54px;
-    }
-
-    .card {
-        padding: 22px;
-    }
-
-    .btn {
-        width: 100%;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    .btn,
-    .skills li,
-    .nav a {
-        transition: none;
-    }
-}
-
+ 
 /* =========================================
    SALADIER INTERACTIF
 ========================================= */
-
+ 
 .saladier-wrap {
     display: grid;
     gap: 18px;
 }
-
+ 
 .draw-hint {
     color: var(--muted);
     font-size: 0.88rem;
     font-weight: 800;
     text-align: center;
 }
-
+ 
 button.word {
     border: 0;
     font-family: "Fredoka", sans-serif;
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.2s ease, scale 0.2s ease;
 }
-
+ 
 button.word.word-navy {
     background: transparent;
     border: 2px solid var(--cream);
 }
-
+ 
 button.word:hover {
     scale: 1.08;
 }
-
+ 
 button.word:focus-visible {
     outline: 3px solid var(--coral);
     outline-offset: 3px;
 }
-
+ 
 button.word.is-active {
     scale: 1.18;
     z-index: 1;
 }
-
+ 
 .saladier.has-active .word:not(.is-active) {
     opacity: 0.45;
 }
-
+ 
 .draw-result {
     padding: 18px 20px 20px;
     border-radius: 22px;
@@ -525,7 +533,7 @@ button.word.is-active {
     box-shadow: 0 5px 0 var(--shadow-soft), 0 12px 24px rgba(16, 44, 58, 0.06);
     animation: drawPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
-
+ 
 .draw-skill {
     margin-bottom: 6px;
     color: var(--coral);
@@ -534,45 +542,35 @@ button.word.is-active {
     font-weight: 700;
     line-height: 1.1;
 }
-
+ 
 .draw-proof {
     color: var(--text);
     font-weight: 700;
 }
-
+ 
 @keyframes drawPop {
     from {
         opacity: 0;
         transform: translateY(14px) scale(0.95);
     }
-
+ 
     to {
         opacity: 1;
         transform: translateY(0) scale(1);
     }
 }
-
-@media (prefers-reduced-motion: reduce) {
-    .draw-result {
-        animation: none;
-    }
-
-    button.word {
-        transition: none;
-    }
-}
-
+ 
 /* =========================================
    SALADIER PHYSIQUE (Matter.js)
 ========================================= */
-
+ 
 .saladier.is-physics {
     position: relative;
     display: block;
     height: 340px;
     overflow: hidden;
 }
-
+ 
 .saladier.is-physics .word {
     position: absolute;
     top: 0;
@@ -583,9 +581,61 @@ button.word.is-active {
     /* pas de transition sur transform, sinon les mots se traînent */
     transition: opacity 0.2s ease, scale 0.2s ease;
 }
-
+ 
+/* ---------- Mobile ---------- */
+ 
 @media (max-width: 760px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+ 
+    .saladier {
+        min-height: 200px;
+    }
+ 
     .saladier.is-physics {
         height: 300px;
+    }
+ 
+    .section {
+        padding-top: 54px;
+    }
+ 
+    .card {
+        padding: 22px;
+    }
+ 
+    .btn {
+        width: 100%;
+    }
+ 
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+ 
+    .portrait {
+        max-width: 190px;
+        margin: 0 auto 10px;
+    }
+}
+ 
+/* ---------- Accessibilité : réduire les animations ---------- */
+ 
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+ 
+    .btn,
+    .skills li,
+    .nav a,
+    button.word {
+        transition: none;
+    }
+ 
+    .draw-result {
+        animation: none;
     }
 }

@@ -17,11 +17,11 @@
     >
 
     <link rel="stylesheet" href="style.css">
-        <script>document.documentElement.classList.add("js");</script>
+
+    <script>document.documentElement.classList.add("js");</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js" defer></script>
-    <script src="script.js" defer></script>
     <script src="script.js" defer></script>
 </head>
 
@@ -46,7 +46,7 @@
             <div class="hero-text">
                 <p class="eyebrow">DIEYNABA BALDÉ · ÉTUDIANTE EN GÉNIE LOGICIEL</p>
 
-                                <h1 id="hero-title">
+                <h1 id="hero-title">
                     Je transforme mes idées en projets qui
                     <span class="hl">marchent.</span>
                 </h1>
@@ -64,7 +64,7 @@
                 </div>
             </div>
 
-                        <div class="saladier-wrap">
+            <div class="saladier-wrap">
                 <p class="draw-hint">Clique sur un mot, ou tire-en un au hasard.</p>
 
                 <div class="saladier" id="saladier"></div>
@@ -101,7 +101,7 @@
                     </div>
                 </article>
 
-                <!-- Étape 5 : les autres projets seront ajoutés ici -->
+                <!-- Étape suivante : les autres projets seront ajoutés ici -->
             </div>
         </section>
 
@@ -113,25 +113,36 @@
             <p class="section-label">À propos</p>
             <h2>Mon parcours</h2>
 
-            <p class="lead">
-                J'aime comprendre comment les choses fonctionnent, expérimenter, puis mettre en ligne
-                ce que j'ai construit. Je progresse en créant des projets concrets et en apprenant de chaque bug.
-            </p>
+            <div class="about-grid">
+                <figure class="portrait">
+                    <span class="portrait-bg" aria-hidden="true"></span>
+                    <div class="portrait-frame">
+                        <img src="images/photo.jpg" alt="Portrait de Dieynaba Baldé" width="600" height="600" loading="lazy">
+                    </div>
+                </figure>
 
-            <ol class="timeline">
-                <li>
-                    <span class="timeline-date">2026 - 2027</span>
-                    <p><strong>Licence 3 génie logiciel et systèmes informatiques</strong>, École Supérieure Polytechnique, Dakar</p>
-                </li>
-                <li>
-                    <span class="timeline-date">Mai - juillet 2026</span>
-                    <p><strong>Stage de 3 mois</strong> chez InTouch Group</p>
-                </li>
-                <li>
-                    <span class="timeline-date">2026</span>
-                    <p><strong>DUT en génie logiciel</strong>, École Supérieure Polytechnique, Dakar</p>
-                </li>
-            </ol>
+                <div class="about-text">
+                    <p class="lead">
+                        J'aime comprendre comment les choses fonctionnent, expérimenter, puis mettre en ligne
+                        ce que j'ai construit. Je progresse en créant des projets concrets et en apprenant de chaque bug.
+                    </p>
+
+                    <ol class="timeline">
+                        <li>
+                            <span class="timeline-date">2026 - 2027</span>
+                            <p><strong>Licence 3 génie logiciel et systèmes informatiques</strong>, École Supérieure Polytechnique, Dakar</p>
+                        </li>
+                        <li>
+                            <span class="timeline-date">Mai - juillet 2026</span>
+                            <p><strong>Stage de 3 mois</strong> chez InTouch Group</p>
+                        </li>
+                        <li>
+                            <span class="timeline-date">2026</span>
+                            <p><strong>DUT en génie logiciel</strong>, École Supérieure Polytechnique, Dakar</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
         </section>
 
 
@@ -176,11 +187,8 @@
             </p>
 
             <div class="contact-links">
-                <!-- A REMPLACER par ton adresse e-mail -->
                 <a class="btn btn-primary" href="mailto:dieynababalde362@gmail.com">Envoyer un e-mail</a>
-                <!-- A REMPLACER par l'adresse de ton profil LinkedIn -->
                 <a class="btn btn-secondary" href="https://www.linkedin.com/in/dieynaba-balde-01b881343" target="_blank" rel="noopener">LinkedIn</a>
-" target="_blank" rel="noopener">LinkedIn</a>
                 <a class="btn btn-secondary" href="https://github.com/jeynita" target="_blank" rel="noopener">GitHub</a>
             </div>
         </section>
