@@ -60,7 +60,7 @@
         },
         {
             title: "Parlons-nous",
-            text: "Je cherche un stage à Dakar à partir de mai 2027. Vous pouvez me contacter via LinkedIn ou par e-mail.",
+                        text: "Je cherche un stage à Dakar à partir de mai 2027. Écris-moi, ou télécharge mon CV.", 
             target: "#contact .contact-links",
             pad: 14
         }
