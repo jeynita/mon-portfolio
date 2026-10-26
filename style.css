@@ -561,3 +561,31 @@ button.word.is-active {
         transition: none;
     }
 }
+
+/* =========================================
+   SALADIER PHYSIQUE (Matter.js)
+========================================= */
+
+.saladier.is-physics {
+    position: relative;
+    display: block;
+    height: 340px;
+    overflow: hidden;
+}
+
+.saladier.is-physics .word {
+    position: absolute;
+    top: 0;
+    left: 0;
+    rotate: none;
+    white-space: nowrap;
+    will-change: transform;
+    /* pas de transition sur transform, sinon les mots se traînent */
+    transition: opacity 0.2s ease, scale 0.2s ease;
+}
+
+@media (max-width: 760px) {
+    .saladier.is-physics {
+        height: 300px;
+    }
+}
