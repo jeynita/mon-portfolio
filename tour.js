@@ -60,7 +60,7 @@
         },
         {
             title: "Parlons-nous",
-                        text: "Je cherche un stage à Dakar à partir de mai 2027. Écris-moi, ou télécharge mon CV.", 
+                                    text: "Je cherche une alternance en développement logiciel à Dakar. Écris-moi, ou télécharge mon CV.",
             target: "#contact .contact-links",
             pad: 14
         }
